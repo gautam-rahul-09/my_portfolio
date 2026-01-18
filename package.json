@@ -1,0 +1,49 @@
+{
+  "name": "gautam-rahul-portfolio",
+  "version": "1.0.0",
+  "description": "Modern dark-mode portfolio website for Gautam Rahul - UI/UX Designer & AI Enthusiast",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx live-server --port=3000 --open=index.html",
+    "dev": "npx live-server --port=3000 --open=index.html --watch=.",
+    "demo": "npx live-server --port=3000 --open=demo.html",
+    "build": "echo 'No build process needed for static site'",
+    "deploy": "echo 'Deploy to your preferred hosting service (GitHub Pages, Netlify, Vercel)'",
+    "validate": "npx html-validate index.html && echo 'HTML validation complete'"
+  },
+  "keywords": [
+    "portfolio",
+    "ui-ux-design",
+    "artificial-intelligence",
+    "dark-mode",
+    "responsive",
+    "glassmorphism",
+    "emailjs",
+    "modern-web-design"
+  ],
+  "author": {
+    "name": "Gautam Rahul",
+    "email": "gautamrahul2905@gmail.com",
+    "url": "https://github.com/gautam-rahul-09"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gautam-rahul-09/portfolio-website.git"
+  },
+  "homepage": "https://gautam-rahul-09.github.io/portfolio-website",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "html-validate": "^8.7.4"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ]
+}

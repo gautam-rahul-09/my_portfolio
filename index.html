@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gautam Rahul - UI/UX Designer | AI Enthusiast</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">GR</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-name">
+                        <span class="name-part">Gautam</span>
+                        <span class="name-part">Rahul</span>
+                    </h1>
+                    <h2 class="hero-title">UI/UX Designer | Motion Designer | AI & Generative AI Enthusiast</h2>
+                    <p class="hero-tagline">Designing intelligent, user-centered digital experiences</p>
+                    <div class="hero-buttons">
+                        <a href="#portfolio" class="btn btn-primary">View Portfolio</a>
+                        <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="image-container">
+                        <div class="profile-image">
+                            <img src="gtm.jpg" alt="Gautam Rahul - UI/UX Designer & AI Enthusiast" />
+                        </div>
+                        <div class="floating-elements">
+                            <div class="floating-icon" style="--delay: 0s">
+                                <i class="fab fa-figma"></i>
+                            </div>
+                            <div class="floating-icon" style="--delay: 1s">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div class="floating-icon" style="--delay: 2s">
+                                <i class="fab fa-python"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-description">
+                        Passionate UI/UX & Motion Designer with a strong interest in AI and Generative AI. 
+                        I aim to build innovative, user-centered solutions by merging design with emerging technologies.
+                    </p>
+                    <div class="education-card">
+                        <div class="education-header">
+                            <i class="fas fa-graduation-cap"></i>
+                            <h3>Education</h3>
+                        </div>
+                        <div class="education-details">
+                            <h4>B.Tech in Computer Engineering</h4>
+                            <p class="university">RK University</p>
+                            <div class="education-meta">
+                                <span class="duration">2022 – 2026</span>
+                                <span class="cgpa">CGPA: 7.47</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <div class="card-header">
+                        <div class="company-logo">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <div class="card-title">
+                            <h3>Python Intern</h3>
+                            <p class="company">CodeAlpha</p>
+                            <span class="duration">Remote | July–August 2024</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <ul class="achievements">
+                            <li>Built Hangman Game with interactive gameplay</li>
+                            <li>Developed intelligent Chatbot system</li>
+                            <li>Created automated File Organizer tool</li>
+                        </ul>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">OS</span>
+                            <span class="tech-tag">Random</span>
+                            <span class="tech-tag">NLTK</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="experience-card">
+                    <div class="card-header">
+                        <div class="company-logo">
+                            <i class="fab fa-ibm"></i>
+                        </div>
+                        <div class="card-title">
+                            <h3>AI & ML Intern</h3>
+                            <p class="company">IBM SkillsBuild</p>
+                            <span class="duration">Remote | July–August 2024</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <ul class="achievements">
+                            <li>Fundamentals of AI & ML</li>
+                            <li>Neural Networks & Deep Learning</li>
+                            <li>Generative AI & Prompt Engineering</li>
+                            <li>AI Tools & Frameworks</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Design</h3>
+                    <div class="skill-item">
+                        <span class="skill-name">UI/UX Design</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Motion Design</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Figma</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="95%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Technology</h3>
+                    <div class="skill-item">
+                        <span class="skill-name">Python</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Artificial Intelligence</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Machine Learning</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="70%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Generative AI</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="65%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Prompt Engineering</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2 class="section-title">Portfolio</h2>
+            <div class="portfolio-tabs">
+                <button class="tab-btn active" data-tab="uiux">UI/UX Design</button>
+                <button class="tab-btn" data-tab="ai">AI Projects</button>
+            </div>
+
+            <div class="portfolio-content">
+                <!-- UI/UX Projects -->
+                <div class="tab-content active" id="uiux">
+                    <div class="project-grid">
+                        <div class="project-card">
+                            <div class="project-image">
+                                <div class="project-placeholder">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Laundry Service App</h3>
+                                <p class="project-type">UI/UX Design (Figma)</p>
+                                <p class="project-description">
+                                    End-to-end on-demand laundry service platform with home, services, 
+                                    Wash & Fold flow, cart, scheduling, and authentication features.
+                                </p>
+                                <div class="project-features">
+                                    <span class="feature-tag">High-fidelity prototype</span>
+                                    <span class="feature-tag">Responsive design</span>
+                                    <span class="feature-tag">User-centered</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://www.figma.com/design/O9cB4Cbpk5lFYwwLGdM22J/Laundry-Services" 
+                                       target="_blank" class="project-link">
+                                        <i class="fab fa-figma"></i> View Prototype
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-image">
+                                <div class="project-placeholder">
+                                    <i class="fas fa-chart-bar"></i>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Admin & User Management Dashboard</h3>
+                                <p class="project-type">UI/UX Design (Figma)</p>
+                                <p class="project-description">
+                                    Role-based admin & user dashboard with analytics cards, data tables, 
+                                    forms, and authentication. Clean, scalable, enterprise-style UI.
+                                </p>
+                                <div class="project-features">
+                                    <span class="feature-tag">Role-based access</span>
+                                    <span class="feature-tag">Analytics</span>
+                                    <span class="feature-tag">Enterprise UI</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://www.figma.com/design/UuaeRAykM5xyGrVw55jQfF/trikalsandhya-project" 
+                                       target="_blank" class="project-link">
+                                        <i class="fab fa-figma"></i> View Prototype
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Projects -->
+                <div class="tab-content" id="ai">
+                    <div class="project-grid">
+                        <div class="project-card">
+                            <div class="project-image">
+                                <div class="project-placeholder">
+                                    <i class="fas fa-robot"></i>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Medical Chatbot</h3>
+                                <p class="project-type">AI & Generative AI</p>
+                                <p class="project-description">
+                                    Conversational AI for medical queries built with Azure OpenAI, LangChain, 
+                                    and Streamlit. Features natural language interaction and intelligent response generation.
+                                </p>
+                                <div class="project-features">
+                                    <span class="feature-tag">Azure OpenAI</span>
+                                    <span class="feature-tag">LangChain</span>
+                                    <span class="feature-tag">Streamlit</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://github.com/gautam-rahul-09/Medical-ChatBot" 
+                                       target="_blank" class="project-link">
+                                        <i class="fab fa-github"></i> View Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-image">
+                                <div class="project-placeholder">
+                                    <i class="fas fa-hand-paper"></i>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Hand Tracking with AI-Powered Problem Solving</h3>
+                                <p class="project-type">Computer Vision & AI</p>
+                                <p class="project-description">
+                                    Real-time hand tracking using Computer Vision integrated with AI-based 
+                                    problem-solving system. Built with Python, OpenCV, MediaPipe, and Streamlit.
+                                </p>
+                                <div class="project-features">
+                                    <span class="feature-tag">OpenCV</span>
+                                    <span class="feature-tag">MediaPipe</span>
+                                    <span class="feature-tag">Real-time tracking</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://github.com/gautam-rahul-09/Hand-Tracking-with-AI-Powered-Problem-Solving-Python-Streamlit-" 
+                                       target="_blank" class="project-link">
+                                        <i class="fab fa-github"></i> View Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <p><a href="mailto:gautamrahul2905@gmail.com?subject=Portfolio Inquiry&body=Hi Gautam,%0D%0A%0D%0AI found your portfolio and would like to connect with you.%0D%0A%0D%0ABest regards," class="email-link">gautamrahul2905@gmail.com</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Phone</h3>
+                            <p><a href="tel:+919304288986" class="phone-link">+91 9304288986</a></p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/gautam-rahul-65172224a/" target="_blank" class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/gautam-rahul-09" target="_blank" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-form-container">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" required>
+                            <label for="name">Your Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required>
+                            <label for="email">Your Email</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" required>
+                            <label for="subject">Subject</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                            <label for="message">Your Message</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <span class="btn-text">Send Message</span>
+                            <span class="btn-loading">Sending...</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Gautam Rahul. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="emailjs-config.js"></script>
+</body>
+</html>

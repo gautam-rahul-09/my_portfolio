@@ -1,0 +1,20 @@
+🚀 GAUTAM RAHUL - PORTFOLIO WEBSITE 🚀
+
+SUPER EASY START:
+==================
+
+1. Double-click "RUN-PORTFOLIO.bat" 
+   OR
+2. Double-click "index.html"
+
+That's it! Your portfolio will open in your browser.
+
+📁 IMPORTANT: Keep all files in the same folder!
+
+📖 For detailed help, open "QUICK-START.md"
+
+🌐 To put online: See deployment options in "QUICK-START.md"
+
+✉️ To enable email: Follow "SETUP.md" guide
+
+Enjoy your professional portfolio! 🎉

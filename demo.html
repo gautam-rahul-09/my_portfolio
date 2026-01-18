@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Demo - Test Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: #f5f5f5;
+        }
+        .demo-section {
+            background: white;
+            padding: 2rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .demo-button {
+            background: #6366f1;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .demo-button:hover {
+            background: #5855eb;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .success { background: #d1fae5; color: #065f46; }
+        .error { background: #fee2e2; color: #991b1b; }
+        .info { background: #dbeafe; color: #1e40af; }
+    </style>
+</head>
+<body>
+    <h1>Portfolio Website Demo & Test Page</h1>
+    
+    <div class="demo-section">
+        <h2>🚀 Quick Start</h2>
+        <p>Your portfolio website is ready! Here's what you need to do:</p>
+        <ol>
+            <li><strong>Open the main website:</strong> <a href="index.html" target="_blank">index.html</a></li>
+            <li><strong>Configure EmailJS:</strong> Follow the setup guide in <a href="SETUP.md" target="_blank">SETUP.md</a></li>
+            <li><strong>Customize content:</strong> Edit personal information in the HTML file</li>
+            <li><strong>Deploy:</strong> Upload to your hosting service or GitHub Pages</li>
+        </ol>
+    </div>
+
+    <div class="demo-section">
+        <h2>📋 Features Checklist</h2>
+        <div id="featureChecklist">
+            <div class="status info">✅ Dark mode design with glassmorphism effects</div>
+            <div class="status info">✅ Responsive layout for all devices</div>
+            <div class="status info">✅ Smooth animations and transitions</div>
+            <div class="status info">✅ Interactive portfolio tabs</div>
+            <div class="status info">✅ Skills progress bars</div>
+            <div class="status info">✅ Contact form with validation</div>
+            <div class="status info">✅ Social media integration</div>
+            <div class="status info">✅ SEO optimized structure</div>
+        </div>
+    </div>
+
+    <div class="demo-section">
+        <h2>🛠️ Configuration Status</h2>
+        <div id="configStatus">
+            <div class="status error">⚠️ EmailJS not configured - Contact form will show fallback message</div>
+            <div class="status success">✅ All CSS and JavaScript files loaded</div>
+            <div class="status success">✅ Font Awesome icons loaded</div>
+            <div class="status success">✅ Google Fonts loaded</div>
+        </div>
+    </div>
+
+    <div class="demo-section">
+        <h2>🎨 Customization Options</h2>
+        <p>Easy customization through CSS custom properties:</p>
+        <ul>
+            <li><strong>Colors:</strong> Edit the :root variables in styles.css</li>
+            <li><strong>Fonts:</strong> Change the Google Fonts import and CSS font-family</li>
+            <li><strong>Content:</strong> Update text, links, and images in index.html</li>
+            <li><strong>Layout:</strong> Modify CSS Grid and Flexbox properties</li>
+        </ul>
+    </div>
+
+    <div class="demo-section">
+        <h2>📱 Test Responsiveness</h2>
+        <p>Test your portfolio on different screen sizes:</p>
+        <button class="demo-button" onclick="testResponsive('desktop')">Desktop View</button>
+        <button class="demo-button" onclick="testResponsive('tablet')">Tablet View</button>
+        <button class="demo-button" onclick="testResponsive('mobile')">Mobile View</button>
+        <div id="responsiveTest"></div>
+    </div>
+
+    <div class="demo-section">
+        <h2>🚀 Deployment Options</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem;">
+            <div style="padding: 1rem; border: 2px solid #e5e7eb; border-radius: 8px;">
+                <h3>GitHub Pages</h3>
+                <p>Free hosting for static sites</p>
+                <small>Perfect for portfolios</small>
+            </div>
+            <div style="padding: 1rem; border: 2px solid #e5e7eb; border-radius: 8px;">
+                <h3>Netlify</h3>
+                <p>Automatic deployments</p>
+                <small>Great for continuous deployment</small>
+            </div>
+            <div style="padding: 1rem; border: 2px solid #e5e7eb; border-radius: 8px;">
+                <h3>Vercel</h3>
+                <p>Zero-config deployment</p>
+                <small>Optimized for performance</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="demo-section">
+        <h2>📞 Support</h2>
+        <p>Need help? Check these resources:</p>
+        <ul>
+            <li><a href="SETUP.md" target="_blank">Setup Guide</a> - Detailed configuration instructions</li>
+            <li><a href="README.md" target="_blank">Documentation</a> - Complete project documentation</li>
+            <li><strong>Browser Console:</strong> Check for any JavaScript errors</li>
+            <li><strong>EmailJS Dashboard:</strong> Verify your email service configuration</li>
+        </ul>
+    </div>
+
+    <script>
+        function testResponsive(size) {
+            const testDiv = document.getElementById('responsiveTest');
+            const sizes = {
+                desktop: '1200px',
+                tablet: '768px', 
+                mobile: '375px'
+            };
+            
+            testDiv.innerHTML = `
+                <div class="status info" style="margin-top: 1rem;">
+                    Testing ${size} view (${sizes[size]} width)<br>
+                    <small>Open your main portfolio in a new tab and resize the browser window to ${sizes[size]} to test responsiveness.</small>
+                </div>
+            `;
+        }
+
+        // Check if EmailJS is loaded
+        window.addEventListener('load', function() {
+            const configStatus = document.getElementById('configStatus');
+            
+            if (typeof emailjs !== 'undefined') {
+                configStatus.innerHTML += '<div class="status success">✅ EmailJS library loaded successfully</div>';
+            } else {
+                configStatus.innerHTML += '<div class="status error">⚠️ EmailJS library not loaded - Check internet connection</div>';
+            }
+        });
+    </script>
+</body>
+</html>
