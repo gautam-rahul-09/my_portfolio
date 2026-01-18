@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Gautam Rahul - Portfolio Website
 
 A modern, dark-mode portfolio website showcasing UI/UX design skills, AI projects, and professional experience. Built with HTML, CSS, and JavaScript featuring glassmorphism effects, smooth animations, and a fully functional contact form.
@@ -166,3 +167,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 ⭐ **Star this repository if you found it helpful!**
+=======
+# my_portfolio
+>>>>>>> bed2309c8dbe75ccd7c60edb889ca6b1d25dfa5e
