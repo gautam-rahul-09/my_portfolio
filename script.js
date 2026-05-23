@@ -1,317 +1,279 @@
-// Mobile Navigation
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
+'use strict';
+
+// ===== CURSOR GLOW =====
+const cursorGlow = document.getElementById('cursorGlow');
+document.addEventListener('mousemove', e => {
+    cursorGlow.style.left = e.clientX + 'px';
+    cursorGlow.style.top = e.clientY + 'px';
+});
+
+// ===== SCROLL PROGRESS =====
+const scrollProgress = document.getElementById('scrollProgress');
+window.addEventListener('scroll', () => {
+    const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+    scrollProgress.style.width = pct + '%';
+});
+
+// ===== NAVBAR =====
+const navbar = document.getElementById('navbar');
 const navLinks = document.querySelectorAll('.nav-link');
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('navMenu');
+
+window.addEventListener('scroll', () => {
+    navbar.style.background = window.scrollY > 50
+        ? 'rgba(10,10,10,0.98)' : 'rgba(10,10,10,0.85)';
+
+    // Active link
+    let current = '';
+    document.querySelectorAll('section[id]').forEach(sec => {
+        if (window.scrollY >= sec.offsetTop - 120) current = sec.id;
+    });
+    navLinks.forEach(l => {
+        l.classList.toggle('active', l.getAttribute('href') === '#' + current);
+    });
+});
 
 hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
+    navMenu.classList.toggle('open');
+    hamburger.classList.toggle('open');
 });
 
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-    });
-});
+navLinks.forEach(l => l.addEventListener('click', () => {
+    navMenu.classList.remove('open');
+    hamburger.classList.remove('open');
+}));
 
-// Smooth Scrolling
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
     });
 });
 
-// Active Navigation Link
-window.addEventListener('scroll', () => {
-    let current = '';
-    const sections = document.querySelectorAll('section');
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (scrollY >= (sectionTop - 200)) {
-            current = section.getAttribute('id');
-        }
-    });
-
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
-    });
+// ===== THEME TOGGLE =====
+const themeToggle = document.getElementById('themeToggle');
+const themeIcon = document.getElementById('themeIcon');
+let isLight = false;
+themeToggle.addEventListener('click', () => {
+    isLight = !isLight;
+    document.body.classList.toggle('light', isLight);
+    themeIcon.className = isLight ? 'fas fa-moon' : 'fas fa-sun';
 });
 
-// Skills Animation
-const observerOptions = {
-    threshold: 0.5,
-    rootMargin: '0px 0px -100px 0px'
-};
+// ===== HERO CANVAS PARTICLES =====
+const canvas = document.getElementById('heroCanvas');
+const ctx = canvas.getContext('2d');
+let particles = [];
 
-const skillsObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const skillBars = entry.target.querySelectorAll('.skill-progress');
-            skillBars.forEach(bar => {
-                const width = bar.getAttribute('data-width');
-                bar.style.width = width;
-            });
-        }
-    });
-}, observerOptions);
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
 
-const skillsSection = document.querySelector('.skills');
-if (skillsSection) {
-    skillsObserver.observe(skillsSection);
+class Particle {
+    constructor() { this.reset(); }
+    reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 1.5 + 0.5;
+        this.speedX = (Math.random() - 0.5) * 0.4;
+        this.speedY = (Math.random() - 0.5) * 0.4;
+        this.opacity = Math.random() * 0.5 + 0.1;
+        this.color = Math.random() > 0.5 ? '0,194,255' : '139,92,246';
+    }
+    update() {
+        this.x += this.speedX; this.y += this.speedY;
+        if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
+    }
+    draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${this.color},${this.opacity})`;
+        ctx.fill();
+    }
 }
 
-// Portfolio Tabs
-const tabButtons = document.querySelectorAll('.tab-btn');
-const tabContents = document.querySelectorAll('.tab-content');
+for (let i = 0; i < 80; i++) particles.push(new Particle());
 
-tabButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const targetTab = button.getAttribute('data-tab');
-        
-        // Remove active class from all buttons and contents
-        tabButtons.forEach(btn => btn.classList.remove('active'));
-        tabContents.forEach(content => content.classList.remove('active'));
-        
-        // Add active class to clicked button and corresponding content
-        button.classList.add('active');
-        document.getElementById(targetTab).classList.add('active');
-    });
-});
-
-// Contact Form with EmailJS - handled in emailjs-config.js
-// This section is now managed by the separate EmailJS configuration file
-
-// Notification System - Enhanced version in emailjs-config.js
-// Basic notification function for general use
-function showNotification(message, type) {
-    // Remove existing notifications
-    const existingNotification = document.querySelector('.notification');
-    if (existingNotification) {
-        existingNotification.remove();
-    }
-    
-    // Create notification element
-    const notification = document.createElement('div');
-    notification.className = `notification ${type}`;
-    notification.innerHTML = `
-        <div class="notification-content">
-            <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
-            <span>${message}</span>
-        </div>
-    `;
-    
-    // Add notification styles
-    notification.style.cssText = `
-        position: fixed;
-        top: 100px;
-        right: 20px;
-        background: ${type === 'success' ? 'rgba(34, 197, 94, 0.9)' : 'rgba(239, 68, 68, 0.9)'};
-        color: white;
-        padding: 1rem 1.5rem;
-        border-radius: 8px;
-        backdrop-filter: blur(10px);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-        z-index: 10000;
-        transform: translateX(400px);
-        transition: transform 0.3s ease;
-    `;
-    
-    // Add to DOM
-    document.body.appendChild(notification);
-    
-    // Animate in
-    setTimeout(() => {
-        notification.style.transform = 'translateX(0)';
-    }, 100);
-    
-    // Remove after 5 seconds
-    setTimeout(() => {
-        notification.style.transform = 'translateX(400px)';
-        setTimeout(() => {
-            notification.remove();
-        }, 300);
-    }, 5000);
-}
-
-// Parallax Effect for Hero Section
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const parallaxElements = document.querySelectorAll('.floating-icon');
-    
-    parallaxElements.forEach((element, index) => {
-        const speed = 0.5 + (index * 0.1);
-        element.style.transform = `translateY(${scrolled * speed}px)`;
-    });
-});
-
-// Intersection Observer for Animations
-const animationObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.animationPlayState = 'running';
-        }
-    });
-}, {
-    threshold: 0.1
-});
-
-// Observe elements for animation
-document.querySelectorAll('.experience-card, .project-card, .education-card').forEach(el => {
-    animationObserver.observe(el);
-});
-
-// Typing Effect for Hero Title
-function typeWriter(element, text, speed = 100) {
-    let i = 0;
-    element.innerHTML = '';
-    
-    function type() {
-        if (i < text.length) {
-            element.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
+function drawConnections() {
+    for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 120) {
+                ctx.beginPath();
+                ctx.moveTo(particles[i].x, particles[i].y);
+                ctx.lineTo(particles[j].x, particles[j].y);
+                ctx.strokeStyle = `rgba(0,194,255,${0.06 * (1 - dist / 120)})`;
+                ctx.lineWidth = 0.5;
+                ctx.stroke();
+            }
         }
     }
-    
-    type();
 }
 
-// Initialize typing effect when page loads
-window.addEventListener('load', () => {
-    const heroTitle = document.querySelector('.hero-title');
-    if (heroTitle) {
-        const originalText = heroTitle.textContent;
-        typeWriter(heroTitle, originalText, 50);
-    }
-});
+function animateCanvas() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => { p.update(); p.draw(); });
+    drawConnections();
+    requestAnimationFrame(animateCanvas);
+}
+animateCanvas();
 
-// Add scroll-based navbar background
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 100) {
-        navbar.style.background = 'rgba(10, 10, 10, 0.98)';
+// ===== TYPING ANIMATION =====
+const phrases = [
+    'AI-powered systems',
+    'Generative AI apps',
+    'Data Analytics tools',
+    'intelligent solutions',
+    'ML models'
+];
+let phraseIndex = 0, charIndex = 0, isDeleting = false;
+const typedEl = document.getElementById('typedText');
+
+function typeWriter() {
+    const current = phrases[phraseIndex];
+    if (isDeleting) {
+        typedEl.textContent = current.substring(0, charIndex--);
     } else {
-        navbar.style.background = 'rgba(10, 10, 10, 0.95)';
+        typedEl.textContent = current.substring(0, charIndex++);
     }
-});
-
-// Preloader (optional)
-window.addEventListener('load', () => {
-    const preloader = document.querySelector('.preloader');
-    if (preloader) {
-        preloader.style.opacity = '0';
-        setTimeout(() => {
-            preloader.style.display = 'none';
-        }, 500);
+    let delay = isDeleting ? 60 : 100;
+    if (!isDeleting && charIndex === current.length + 1) {
+        delay = 2000; isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        delay = 400;
     }
-});
+    setTimeout(typeWriter, delay);
+}
+typeWriter();
 
-// Add custom cursor effect (optional)
-document.addEventListener('mousemove', (e) => {
-    const cursor = document.querySelector('.custom-cursor');
-    if (cursor) {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
-    }
-});
+// ===== STATS COUNTER =====
+function animateCounter(el) {
+    const target = parseInt(el.dataset.target);
+    let count = 0;
+    const step = Math.ceil(target / 30);
+    const timer = setInterval(() => {
+        count = Math.min(count + step, target);
+        el.textContent = count + '+';
+        if (count >= target) clearInterval(timer);
+    }, 50);
+}
 
-// Form validation - Enhanced version in emailjs-config.js
-// Basic validation for general use
-// Basic form validation function
-function basicValidateForm() {
-    const form = document.getElementById('contactForm');
-    const inputs = form.querySelectorAll('input[required], textarea[required]');
-    let isValid = true;
-    
-    inputs.forEach(input => {
-        if (!input.value.trim()) {
-            input.style.borderColor = '#ef4444';
-            isValid = false;
-        } else {
-            input.style.borderColor = 'var(--border-color)';
+const statsObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+        if (e.isIntersecting) {
+            document.querySelectorAll('.stat-number').forEach(animateCounter);
+            statsObserver.disconnect();
         }
     });
-    
-    // Email validation
-    const email = form.querySelector('input[type="email"]');
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (email && !emailRegex.test(email.value)) {
-        email.style.borderColor = '#ef4444';
-        isValid = false;
-    }
-    
-    return isValid;
-}
+}, { threshold: 0.5 });
+const statsEl = document.querySelector('.hero-stats');
+if (statsEl) statsObserver.observe(statsEl);
 
-// Basic form validation on submit - Enhanced version in emailjs-config.js
-// contactForm.addEventListener('submit', (e) => {
-//     if (!basicValidateForm()) {
-//         e.preventDefault();
-//         showNotification('Please fill in all required fields correctly.', 'error');
-//     }
-// });
-
-// Real-time validation - Enhanced version in emailjs-config.js
-// document.querySelectorAll('input, textarea').forEach(input => {
-//     input.addEventListener('blur', basicValidateForm);
-// });
-
-// Add loading animation for project images
-document.querySelectorAll('.project-image').forEach(img => {
-    img.addEventListener('mouseenter', () => {
-        img.style.transform = 'scale(1.05)';
+// ===== SKILL BARS =====
+const skillObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+        if (e.isIntersecting) {
+            e.target.querySelectorAll('.bar-fill').forEach(bar => {
+                bar.style.width = bar.dataset.w + '%';
+            });
+        }
     });
-    
-    img.addEventListener('mouseleave', () => {
-        img.style.transform = 'scale(1)';
+}, { threshold: 0.3 });
+document.querySelectorAll('.skill-group').forEach(g => skillObserver.observe(g));
+
+// ===== REVEAL ON SCROLL =====
+const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+            setTimeout(() => e.target.classList.add('visible'), i * 80);
+        }
+    });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// ===== PROJECT FILTER =====
+const filterBtns = document.querySelectorAll('.filter-btn');
+const projectCards = document.querySelectorAll('.project-card');
+
+filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        projectCards.forEach(card => {
+            const show = filter === 'all' || card.dataset.category === filter;
+            card.classList.toggle('hidden', !show);
+        });
     });
 });
 
-// Add particle effect (optional)
-function createParticles() {
-    const particlesContainer = document.createElement('div');
-    particlesContainer.className = 'particles';
-    particlesContainer.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: -1;
-    `;
-    
-    for (let i = 0; i < 50; i++) {
-        const particle = document.createElement('div');
-        particle.style.cssText = `
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: rgba(99, 102, 241, 0.5);
-            border-radius: 50%;
-            animation: float ${Math.random() * 3 + 2}s ease-in-out infinite;
-            left: ${Math.random() * 100}%;
-            top: ${Math.random() * 100}%;
-            animation-delay: ${Math.random() * 2}s;
-        `;
-        particlesContainer.appendChild(particle);
+// ===== CONTACT FORM WITH EMAILJS =====
+// Credentials loaded from emailjs-config.js
+const EJSID = { pub: 'mSNkhi4iVm1QGey2U', svc: 'service_2f7lysf', tpl: 'template_pm9vr2r' };
+emailjs.init(EJSID.pub);
+
+const contactForm = document.getElementById('contactForm');
+const submitBtn = document.getElementById('submitBtn');
+const formStatus = document.getElementById('formStatus');
+
+contactForm.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    const name    = contactForm.name.value.trim();
+    const email   = contactForm.email.value.trim();
+    const subject = contactForm.subject.value.trim();
+    const message = contactForm.message.value.trim();
+
+    if (!name || !email || !subject || !message) {
+        showStatus('Please fill in all fields.', 'error'); return;
     }
-    
-    document.body.appendChild(particlesContainer);
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        showStatus('Please enter a valid email address.', 'error'); return;
+    }
+
+    // Loading state
+    submitBtn.disabled = true;
+    submitBtn.querySelector('.btn-submit-text').style.display = 'none';
+    submitBtn.querySelector('.btn-submit-loading').style.display = 'inline';
+
+    try {
+        await emailjs.send(EJSID.svc, EJSID.tpl, {
+            from_name:  name,
+            from_email: email,
+            subject:    subject,
+            message:    message,
+            reply_to:   email
+        });
+        showStatus('✅ Message sent! I\'ll get back to you soon.', 'success');
+        contactForm.reset();
+    } catch (err) {
+        console.error(err);
+        showStatus('❌ Failed to send. Email me at gautamrahul2905@gmail.com', 'error');
+    } finally {
+        submitBtn.disabled = false;
+        submitBtn.querySelector('.btn-submit-text').style.display = 'inline';
+        submitBtn.querySelector('.btn-submit-loading').style.display = 'none';
+    }
+});
+
+function showStatus(msg, type) {
+    formStatus.textContent = msg;
+    formStatus.className = 'form-status ' + type;
+    setTimeout(() => { formStatus.className = 'form-status'; }, 6000);
 }
 
-// Initialize particles on load
-window.addEventListener('load', createParticles);
+// Floating label fix for textarea
+document.querySelectorAll('.form-group textarea, .form-group input').forEach(el => {
+    el.addEventListener('input', () => {
+        el.setAttribute('data-filled', el.value ? 'true' : '');
+    });
+});

@@ -3,100 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gautam Rahul - UI/UX Designer | AI Enthusiast</title>
+    <title>Gautam Rahul — AI Engineer & Generative AI Developer</title>
+    <meta name="description" content="Gautam Rahul - AI Engineer, Generative AI Developer, Data Analytics Enthusiast and Technology Consultant.">
+    <meta property="og:title" content="Gautam Rahul — AI Engineer">
+    <meta property="og:description" content="Building intelligent systems and transforming ideas into AI-powered experiences.">
+    <meta property="og:type" content="website">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <link rel="stylesheet" href="styles.css">
-    <!-- EmailJS -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
+    <!-- Cursor Glow -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <div class="nav-logo">
-                <span class="logo-text">GR</span>
-            </div>
-            <ul class="nav-menu">
+            <a href="#home" class="nav-logo">GR<span class="logo-dot">.</span></a>
+            <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#experience" class="nav-link">Experience</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#certifications" class="nav-link">Certifications</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" title="Toggle theme">
+                    <i class="fas fa-sun" id="themeIcon"></i>
+                </button>
+                <a href="resume.pdf" download class="btn-resume">
+                    <i class="fas fa-download"></i> Resume
+                </a>
+                <div class="hamburger" id="hamburger">
+                    <span></span><span></span><span></span>
+                </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <canvas id="heroCanvas"></canvas>
+        <div class="hero-grid-overlay"></div>
         <div class="hero-container">
             <div class="hero-content">
                 <div class="hero-text">
+                    <div class="hero-badge">
+                        <span class="badge-dot"></span>
+                        Available for opportunities
+                    </div>
                     <h1 class="hero-name">
-                        <span class="name-part">Gautam</span>
-                        <span class="name-part">Rahul</span>
+                        <span>Gautam</span>
+                        <span class="name-accent">Rahul</span>
                     </h1>
-                    <h2 class="hero-title">UI/UX Designer | Motion Designer | AI & Generative AI Enthusiast</h2>
-                    <p class="hero-tagline">Designing intelligent, user-centered digital experiences</p>
-                    <div class="hero-buttons">
-                        <a href="#portfolio" class="btn btn-primary">View Portfolio</a>
-                        <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                    <div class="hero-title-wrapper">
+                        <span class="hero-title-static">I build </span>
+                        <span class="hero-title-typed" id="typedText"></span>
+                        <span class="cursor-blink">|</span>
+                    </div>
+                    <p class="hero-tagline">Building intelligent systems and transforming ideas into AI-powered experiences.</p>
+                    <p class="hero-intro">Aspiring Technology Consultant and Computer Engineering student passionate about Artificial Intelligence, Machine Learning, Data Analytics, and Generative AI applications.</p>
+                    <div class="hero-cta">
+                        <a href="#projects" class="btn-primary">
+                            <span>View Projects</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="resume.pdf" download class="btn-outline">
+                            <i class="fas fa-download"></i>
+                            <span>Download Resume</span>
+                        </a>
+                        <a href="#contact" class="btn-ghost">Contact Me</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="4">0</span>
+                            <span class="stat-label">Projects</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="2">0</span>
+                            <span class="stat-label">Internships</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="5">0</span>
+                            <span class="stat-label">Certifications</span>
+                        </div>
                     </div>
                 </div>
-                <div class="hero-image">
-                    <div class="image-container">
-                        <div class="profile-image">
-                            <img src="gtm.jpg" alt="Gautam Rahul - UI/UX Designer & AI Enthusiast" />
-                        </div>
-                        <div class="floating-elements">
-                            <div class="floating-icon" style="--delay: 0s">
-                                <i class="fab fa-figma"></i>
-                            </div>
-                            <div class="floating-icon" style="--delay: 1s">
-                                <i class="fas fa-brain"></i>
-                            </div>
-                            <div class="floating-icon" style="--delay: 2s">
-                                <i class="fab fa-python"></i>
+                <div class="hero-visual">
+                    <div class="profile-ring-outer">
+                        <div class="profile-ring-inner">
+                            <div class="profile-img-wrap">
+                                <img src="gtm.jpg" alt="Gautam Rahul" class="profile-img">
                             </div>
                         </div>
+                    </div>
+                    <div class="floating-card card-1">
+                        <i class="fas fa-brain"></i>
+                        <span>Generative AI</span>
+                    </div>
+                    <div class="floating-card card-2">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Data Analytics</span>
+                    </div>
+                    <div class="floating-card card-3">
+                        <i class="fab fa-python"></i>
+                        <span>Python</span>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="scroll-indicator">
-            <div class="scroll-arrow"></div>
+        <div class="hero-scroll-hint">
+            <span>Scroll to explore</span>
+            <div class="scroll-line"></div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about">
+    <section id="about" class="about section">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
+            <div class="section-header">
+                <span class="section-tag">About Me</span>
+                <h2 class="section-title">Who I Am</h2>
+            </div>
+            <div class="about-grid">
                 <div class="about-text">
-                    <p class="about-description">
-                        Passionate UI/UX & Motion Designer with a strong interest in AI and Generative AI. 
-                        I aim to build innovative, user-centered solutions by merging design with emerging technologies.
-                    </p>
-                    <div class="education-card">
-                        <div class="education-header">
-                            <i class="fas fa-graduation-cap"></i>
+                    <p class="about-lead">Aspiring Technology Consultant and Computer Engineering student with hands-on experience in AI/ML, Data Analytics, and Generative AI applications.</p>
+                    <p class="about-body">Skilled in building AI-powered applications with strong analytical and problem-solving abilities. I'm passionate about leveraging cutting-edge AI technologies to solve real-world problems and create meaningful digital experiences.</p>
+                    <div class="about-tags">
+                        <span class="tag">AI Engineering</span>
+                        <span class="tag">Generative AI</span>
+                        <span class="tag">Data Analytics</span>
+                        <span class="tag">Tech Consulting</span>
+                        <span class="tag">Problem Solving</span>
+                    </div>
+                </div>
+                <div class="education-card glass-card">
+                    <div class="edu-header">
+                        <div class="edu-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <div>
                             <h3>Education</h3>
+                            <p class="edu-sub">Academic Background</p>
                         </div>
-                        <div class="education-details">
-                            <h4>B.Tech in Computer Engineering</h4>
-                            <p class="university">RK University</p>
-                            <div class="education-meta">
-                                <span class="duration">2022 – 2026</span>
-                                <span class="cgpa">CGPA: 7.47</span>
+                    </div>
+                    <div class="edu-timeline">
+                        <div class="edu-item">
+                            <div class="edu-dot"></div>
+                            <div class="edu-content">
+                                <h4>B.Tech — Computer Engineering</h4>
+                                <p class="edu-uni">RK University</p>
+                                <div class="edu-meta">
+                                    <span><i class="fas fa-calendar"></i> 2022 – 2026</span>
+                                    <span class="cgpa"><i class="fas fa-star"></i> CGPA: 7.53</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -106,54 +174,57 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="experience">
+    <section id="experience" class="experience section">
         <div class="container">
-            <h2 class="section-title">Experience</h2>
+            <div class="section-header">
+                <span class="section-tag">Experience</span>
+                <h2 class="section-title">Work History</h2>
+            </div>
             <div class="experience-grid">
-                <div class="experience-card">
-                    <div class="card-header">
-                        <div class="company-logo">
-                            <i class="fab fa-python"></i>
+                <div class="exp-card glass-card reveal">
+                    <div class="exp-header">
+                        <div class="exp-logo"><i class="fas fa-chart-bar"></i></div>
+                        <div class="exp-meta">
+                            <h3>Data Analytics Intern</h3>
+                            <p class="exp-company">Navodita Infotech</p>
+                            <span class="exp-duration"><i class="fas fa-map-marker-alt"></i> Remote &nbsp;|&nbsp; <i class="fas fa-calendar"></i> March – April 2026</span>
                         </div>
-                        <div class="card-title">
-                            <h3>Python Intern</h3>
-                            <p class="company">CodeAlpha</p>
-                            <span class="duration">Remote | July–August 2024</span>
-                        </div>
+                        <span class="exp-badge">Latest</span>
                     </div>
-                    <div class="card-content">
-                        <ul class="achievements">
-                            <li>Built Hangman Game with interactive gameplay</li>
-                            <li>Developed intelligent Chatbot system</li>
-                            <li>Created automated File Organizer tool</li>
-                        </ul>
-                        <div class="tech-stack">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">OS</span>
-                            <span class="tech-tag">Random</span>
-                            <span class="tech-tag">NLTK</span>
-                        </div>
+                    <ul class="exp-list">
+                        <li>Analyzed real-world datasets using Python and Excel</li>
+                        <li>Data cleaning and preprocessing pipelines</li>
+                        <li>Exploratory Data Analysis (EDA)</li>
+                        <li>Generated business insights and reports</li>
+                    </ul>
+                    <div class="exp-stack">
+                        <span class="stack-tag">Python</span>
+                        <span class="stack-tag">Excel</span>
+                        <span class="stack-tag">Data Analytics</span>
+                        <span class="stack-tag">EDA</span>
                     </div>
                 </div>
 
-                <div class="experience-card">
-                    <div class="card-header">
-                        <div class="company-logo">
-                            <i class="fab fa-ibm"></i>
-                        </div>
-                        <div class="card-title">
+                <div class="exp-card glass-card reveal">
+                    <div class="exp-header">
+                        <div class="exp-logo ibm"><i class="fab fa-ibm"></i></div>
+                        <div class="exp-meta">
                             <h3>AI & ML Intern</h3>
-                            <p class="company">IBM SkillsBuild</p>
-                            <span class="duration">Remote | July–August 2024</span>
+                            <p class="exp-company">IBM SkillsBuild</p>
+                            <span class="exp-duration"><i class="fas fa-map-marker-alt"></i> Remote &nbsp;|&nbsp; <i class="fas fa-calendar"></i> July – August 2024</span>
                         </div>
                     </div>
-                    <div class="card-content">
-                        <ul class="achievements">
-                            <li>Fundamentals of AI & ML</li>
-                            <li>Neural Networks & Deep Learning</li>
-                            <li>Generative AI & Prompt Engineering</li>
-                            <li>AI Tools & Frameworks</li>
-                        </ul>
+                    <ul class="exp-list">
+                        <li>AI and Machine Learning fundamentals</li>
+                        <li>Deep Learning and Neural Networks</li>
+                        <li>Generative AI and Prompt Engineering</li>
+                        <li>AI frameworks and tools</li>
+                    </ul>
+                    <div class="exp-stack">
+                        <span class="stack-tag">AI</span>
+                        <span class="stack-tag">ML</span>
+                        <span class="stack-tag">Deep Learning</span>
+                        <span class="stack-tag">Generative AI</span>
                     </div>
                 </div>
             </div>
@@ -161,193 +232,231 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="skills">
+    <section id="skills" class="skills section">
         <div class="container">
-            <h2 class="section-title">Skills</h2>
+            <div class="section-header">
+                <span class="section-tag">Skills</span>
+                <h2 class="section-title">Technical Arsenal</h2>
+            </div>
             <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Design</h3>
-                    <div class="skill-item">
-                        <span class="skill-name">UI/UX Design</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="90%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <span class="skill-name">Motion Design</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="85%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <span class="skill-name">Figma</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="95%"></div>
-                        </div>
+                <div class="skill-group glass-card reveal">
+                    <h3><i class="fas fa-code"></i> Technical Skills</h3>
+                    <div class="skill-bars">
+                        <div class="skill-bar-item"><span>Python</span><div class="bar"><div class="bar-fill" data-w="90"></div></div><span class="pct">90%</span></div>
+                        <div class="skill-bar-item"><span>SQL</span><div class="bar"><div class="bar-fill" data-w="80"></div></div><span class="pct">80%</span></div>
+                        <div class="skill-bar-item"><span>Data Analytics</span><div class="bar"><div class="bar-fill" data-w="85"></div></div><span class="pct">85%</span></div>
+                        <div class="skill-bar-item"><span>Machine Learning</span><div class="bar"><div class="bar-fill" data-w="78"></div></div><span class="pct">78%</span></div>
+                        <div class="skill-bar-item"><span>Generative AI</span><div class="bar"><div class="bar-fill" data-w="82"></div></div><span class="pct">82%</span></div>
+                        <div class="skill-bar-item"><span>Power BI</span><div class="bar"><div class="bar-fill" data-w="75"></div></div><span class="pct">75%</span></div>
                     </div>
                 </div>
-
-                <div class="skill-category">
-                    <h3>Technology</h3>
-                    <div class="skill-item">
-                        <span class="skill-name">Python</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="80%"></div>
-                        </div>
+                <div class="skill-group glass-card reveal">
+                    <h3><i class="fas fa-layer-group"></i> Libraries & Frameworks</h3>
+                    <div class="skill-tags-grid">
+                        <span class="skill-pill">Pandas</span>
+                        <span class="skill-pill">NumPy</span>
+                        <span class="skill-pill">TensorFlow</span>
+                        <span class="skill-pill">PyTorch</span>
+                        <span class="skill-pill">Streamlit</span>
+                        <span class="skill-pill">FastAPI</span>
+                        <span class="skill-pill">OpenCV</span>
+                        <span class="skill-pill">MediaPipe</span>
+                        <span class="skill-pill">LangChain</span>
+                        <span class="skill-pill">Sentence Transformers</span>
                     </div>
-                    <div class="skill-item">
-                        <span class="skill-name">Artificial Intelligence</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="75%"></div>
-                        </div>
+                </div>
+                <div class="skill-group glass-card reveal">
+                    <h3><i class="fas fa-tools"></i> Tools</h3>
+                    <div class="skill-tags-grid">
+                        <span class="skill-pill">VS Code</span>
+                        <span class="skill-pill">Git</span>
+                        <span class="skill-pill">GitHub</span>
+                        <span class="skill-pill">Cursor</span>
+                        <span class="skill-pill">Power BI</span>
+                        <span class="skill-pill">Excel</span>
+                        <span class="skill-pill">Jupyter</span>
+                        <span class="skill-pill">Azure OpenAI</span>
                     </div>
-                    <div class="skill-item">
-                        <span class="skill-name">Machine Learning</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="70%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <span class="skill-name">Generative AI</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="65%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <span class="skill-name">Prompt Engineering</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="90%"></div>
-                        </div>
+                </div>
+                <div class="skill-group glass-card reveal">
+                    <h3><i class="fas fa-user-tie"></i> Soft Skills</h3>
+                    <div class="skill-tags-grid">
+                        <span class="skill-pill accent">Problem Solving</span>
+                        <span class="skill-pill accent">Analytical Thinking</span>
+                        <span class="skill-pill accent">Communication</span>
+                        <span class="skill-pill accent">Tech Consulting</span>
+                        <span class="skill-pill accent">Team Collaboration</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio">
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects section">
         <div class="container">
-            <h2 class="section-title">Portfolio</h2>
-            <div class="portfolio-tabs">
-                <button class="tab-btn active" data-tab="uiux">UI/UX Design</button>
-                <button class="tab-btn" data-tab="ai">AI Projects</button>
+            <div class="section-header">
+                <span class="section-tag">Projects</span>
+                <h2 class="section-title">Featured Work</h2>
             </div>
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="ai">AI / ML</button>
+                <button class="filter-btn" data-filter="data">Data Analytics</button>
+                <button class="filter-btn" data-filter="cv">Computer Vision</button>
+            </div>
+            <div class="projects-grid">
 
-            <div class="portfolio-content">
-                <!-- UI/UX Projects -->
-                <div class="tab-content active" id="uiux">
-                    <div class="project-grid">
-                        <div class="project-card">
-                            <div class="project-image">
-                                <div class="project-placeholder">
-                                    <i class="fas fa-mobile-alt"></i>
-                                </div>
-                            </div>
-                            <div class="project-info">
-                                <h3>Laundry Service App</h3>
-                                <p class="project-type">UI/UX Design (Figma)</p>
-                                <p class="project-description">
-                                    End-to-end on-demand laundry service platform with home, services, 
-                                    Wash & Fold flow, cart, scheduling, and authentication features.
-                                </p>
-                                <div class="project-features">
-                                    <span class="feature-tag">High-fidelity prototype</span>
-                                    <span class="feature-tag">Responsive design</span>
-                                    <span class="feature-tag">User-centered</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="https://www.figma.com/design/O9cB4Cbpk5lFYwwLGdM22J/Laundry-Services" 
-                                       target="_blank" class="project-link">
-                                        <i class="fab fa-figma"></i> View Prototype
-                                    </a>
-                                </div>
-                            </div>
+                <div class="project-card glass-card reveal" data-category="data">
+                    <div class="project-img-wrap">
+                        <div class="project-img-placeholder data-bg">
+                            <i class="fas fa-chart-pie"></i>
                         </div>
-
-                        <div class="project-card">
-                            <div class="project-image">
-                                <div class="project-placeholder">
-                                    <i class="fas fa-chart-bar"></i>
-                                </div>
-                            </div>
-                            <div class="project-info">
-                                <h3>Admin & User Management Dashboard</h3>
-                                <p class="project-type">UI/UX Design (Figma)</p>
-                                <p class="project-description">
-                                    Role-based admin & user dashboard with analytics cards, data tables, 
-                                    forms, and authentication. Clean, scalable, enterprise-style UI.
-                                </p>
-                                <div class="project-features">
-                                    <span class="feature-tag">Role-based access</span>
-                                    <span class="feature-tag">Analytics</span>
-                                    <span class="feature-tag">Enterprise UI</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="https://www.figma.com/design/UuaeRAykM5xyGrVw55jQfF/trikalsandhya-project" 
-                                       target="_blank" class="project-link">
-                                        <i class="fab fa-figma"></i> View Prototype
-                                    </a>
-                                </div>
-                            </div>
+                        <span class="project-category-badge">Data Analytics</span>
+                    </div>
+                    <div class="project-body">
+                        <h3>Swiggy Sales Analytics Dashboard</h3>
+                        <p class="project-desc">Performed EDA on Swiggy sales data and extracted business insights from customer ordering patterns and restaurant performance metrics.</p>
+                        <div class="project-features">
+                            <span><i class="fas fa-check"></i> Data preprocessing</span>
+                            <span><i class="fas fa-check"></i> Trend analysis</span>
+                            <span><i class="fas fa-check"></i> Restaurant metrics</span>
+                            <span><i class="fas fa-check"></i> Customer behavior insights</span>
+                        </div>
+                        <div class="project-stack">
+                            <span>Python</span><span>Pandas</span><span>NumPy</span><span>Jupyter</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/gautam-rahul-09/Swiggy_Sales_Analysis" class="proj-link-btn"><i class="fab fa-github"></i> GitHub</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- AI Projects -->
-                <div class="tab-content" id="ai">
-                    <div class="project-grid">
-                        <div class="project-card">
-                            <div class="project-image">
-                                <div class="project-placeholder">
-                                    <i class="fas fa-robot"></i>
-                                </div>
-                            </div>
-                            <div class="project-info">
-                                <h3>Medical Chatbot</h3>
-                                <p class="project-type">AI & Generative AI</p>
-                                <p class="project-description">
-                                    Conversational AI for medical queries built with Azure OpenAI, LangChain, 
-                                    and Streamlit. Features natural language interaction and intelligent response generation.
-                                </p>
-                                <div class="project-features">
-                                    <span class="feature-tag">Azure OpenAI</span>
-                                    <span class="feature-tag">LangChain</span>
-                                    <span class="feature-tag">Streamlit</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="https://github.com/gautam-rahul-09/Medical-ChatBot" 
-                                       target="_blank" class="project-link">
-                                        <i class="fab fa-github"></i> View Code
-                                    </a>
-                                </div>
-                            </div>
+                <div class="project-card glass-card reveal" data-category="ai">
+                    <div class="project-img-wrap">
+                        <div class="project-img-placeholder ai-bg">
+                            <i class="fas fa-file-alt"></i>
                         </div>
+                        <span class="project-category-badge ai">Generative AI</span>
+                    </div>
+                    <div class="project-body">
+                        <h3>AI Powered Resume Screener</h3>
+                        <p class="project-desc">AI-based system that analyzes resumes and matches them against job descriptions using semantic similarity and Azure OpenAI suggestions.</p>
+                        <div class="project-features">
+                            <span><i class="fas fa-check"></i> Resume-job matching score</span>
+                            <span><i class="fas fa-check"></i> Azure OpenAI suggestions</span>
+                            <span><i class="fas fa-check"></i> Semantic embeddings</span>
+                            <span><i class="fas fa-check"></i> Interactive Streamlit UI</span>
+                        </div>
+                        <div class="project-stack">
+                            <span>Python</span><span>Streamlit</span><span>Sentence Transformers</span><span>Azure OpenAI</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/gautam-rahul-09/AI-Powered-Resume-Screener" class="proj-link-btn"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
 
-                        <div class="project-card">
-                            <div class="project-image">
-                                <div class="project-placeholder">
-                                    <i class="fas fa-hand-paper"></i>
-                                </div>
-                            </div>
-                            <div class="project-info">
-                                <h3>Hand Tracking with AI-Powered Problem Solving</h3>
-                                <p class="project-type">Computer Vision & AI</p>
-                                <p class="project-description">
-                                    Real-time hand tracking using Computer Vision integrated with AI-based 
-                                    problem-solving system. Built with Python, OpenCV, MediaPipe, and Streamlit.
-                                </p>
-                                <div class="project-features">
-                                    <span class="feature-tag">OpenCV</span>
-                                    <span class="feature-tag">MediaPipe</span>
-                                    <span class="feature-tag">Real-time tracking</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="https://github.com/gautam-rahul-09/Hand-Tracking-with-AI-Powered-Problem-Solving-Python-Streamlit-" 
-                                       target="_blank" class="project-link">
-                                        <i class="fab fa-github"></i> View Code
-                                    </a>
-                                </div>
-                            </div>
+                <div class="project-card glass-card reveal" data-category="ai">
+                    <div class="project-img-wrap">
+                        <div class="project-img-placeholder med-bg">
+                            <i class="fas fa-robot"></i>
                         </div>
+                        <span class="project-category-badge ai">AI Chatbot</span>
+                    </div>
+                    <div class="project-body">
+                        <h3>AI Powered Medical Assistant Chatbot</h3>
+                        <p class="project-desc">Medical chatbot using Azure OpenAI and LangChain with context-aware responses and natural language interaction for medical queries.</p>
+                        <div class="project-features">
+                            <span><i class="fas fa-check"></i> Context-aware responses</span>
+                            <span><i class="fas fa-check"></i> Natural language interaction</span>
+                            <span><i class="fas fa-check"></i> Secure API integration</span>
+                            <span><i class="fas fa-check"></i> Interactive UI</span>
+                        </div>
+                        <div class="project-stack">
+                            <span>Python</span><span>LangChain</span><span>Azure OpenAI</span><span>Streamlit</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/gautam-rahul-09/Medical-ChatBot" target="_blank" class="proj-link-btn"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card glass-card reveal" data-category="cv">
+                    <div class="project-img-wrap">
+                        <div class="project-img-placeholder cv-bg">
+                            <i class="fas fa-hand-paper"></i>
+                        </div>
+                        <span class="project-category-badge cv">Computer Vision</span>
+                    </div>
+                    <div class="project-body">
+                        <h3>Hand Tracking with AI Problem Solving</h3>
+                        <p class="project-desc">Real-time hand tracking and AI-powered interaction system with gesture recognition and computer vision pipeline.</p>
+                        <div class="project-features">
+                            <span><i class="fas fa-check"></i> Gesture recognition</span>
+                            <span><i class="fas fa-check"></i> Real-time interaction</span>
+                            <span><i class="fas fa-check"></i> Computer vision pipeline</span>
+                            <span><i class="fas fa-check"></i> AI problem solving</span>
+                        </div>
+                        <div class="project-stack">
+                            <span>Python</span><span>OpenCV</span><span>MediaPipe</span><span>Streamlit</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/gautam-rahul-09/Hand-Tracking-with-AI-Powered-Problem-Solving-Python-Streamlit-" target="_blank" class="proj-link-btn"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="certifications section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Certifications</span>
+                <h2 class="section-title">Achievements</h2>
+            </div>
+            <div class="cert-grid">
+                <div class="cert-card glass-card reveal">
+                    <div class="cert-icon oracle"><i class="fas fa-cloud"></i></div>
+                    <div class="cert-body">
+                        <h4>Oracle Cloud Infrastructure</h4>
+                        <p>Generative AI Professional</p>
+                        <span class="cert-issuer">Oracle</span>
+                    </div>
+                </div>
+                <div class="cert-card glass-card reveal">
+                    <div class="cert-icon cisco"><i class="fas fa-network-wired"></i></div>
+                    <div class="cert-body">
+                        <h4>Computer Networking</h4>
+                        <p>Networking Fundamentals</p>
+                        <span class="cert-issuer">Cisco</span>
+                    </div>
+                </div>
+                <div class="cert-card glass-card reveal">
+                    <div class="cert-icon accenture"><i class="fas fa-chart-bar"></i></div>
+                    <div class="cert-body">
+                        <h4>Data Analytics & Visualization</h4>
+                        <p>Job Simulation</p>
+                        <span class="cert-issuer">Accenture</span>
+                    </div>
+                </div>
+                <div class="cert-card glass-card reveal">
+                    <div class="cert-icon nptel"><i class="fas fa-brain"></i></div>
+                    <div class="cert-body">
+                        <h4>Deep Learning</h4>
+                        <p>NPTEL Certification</p>
+                        <span class="cert-issuer">NPTEL</span>
+                    </div>
+                </div>
+                <div class="cert-card glass-card reveal">
+                    <div class="cert-icon sih"><i class="fas fa-trophy"></i></div>
+                    <div class="cert-body">
+                        <h4>SIH 2024</h4>
+                        <p>Internal Hackathon Participant</p>
+                        <span class="cert-issuer">Smart India Hackathon</span>
                     </div>
                 </div>
             </div>
@@ -355,63 +464,78 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <section id="contact" class="contact section">
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-content">
+            <div class="section-header">
+                <span class="section-tag">Contact</span>
+                <h2 class="section-title">Let's Connect</h2>
+                <p class="section-sub">Have a project in mind or want to collaborate? I'd love to hear from you.</p>
+            </div>
+            <div class="contact-grid">
                 <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
+                    <a href="mailto:gautamrahul2905@gmail.com" class="contact-item glass-card">
+                        <div class="contact-icon-wrap"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <p class="contact-label">Email</p>
+                            <p class="contact-value">gautamrahul2905@gmail.com</p>
                         </div>
-                        <div class="contact-details">
-                            <h3>Email</h3>
-                            <p><a href="mailto:gautamrahul2905@gmail.com?subject=Portfolio Inquiry&body=Hi Gautam,%0D%0A%0D%0AI found your portfolio and would like to connect with you.%0D%0A%0D%0ABest regards," class="email-link">gautamrahul2905@gmail.com</a></p>
+                        <i class="fas fa-arrow-right contact-arrow"></i>
+                    </a>
+                    <a href="tel:+919304288986" class="contact-item glass-card">
+                        <div class="contact-icon-wrap"><i class="fas fa-phone"></i></div>
+                        <div>
+                            <p class="contact-label">Phone</p>
+                            <p class="contact-value">+91 9304288986</p>
                         </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
+                        <i class="fas fa-arrow-right contact-arrow"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/gautam-rahul-65172224a/" target="_blank" class="contact-item glass-card">
+                        <div class="contact-icon-wrap linkedin"><i class="fab fa-linkedin"></i></div>
+                        <div>
+                            <p class="contact-label">LinkedIn</p>
+                            <p class="contact-value">gautam-rahul-65172224a</p>
                         </div>
-                        <div class="contact-details">
-                            <h3>Phone</h3>
-                            <p><a href="tel:+919304288986" class="phone-link">+91 9304288986</a></p>
+                        <i class="fas fa-arrow-right contact-arrow"></i>
+                    </a>
+                    <a href="https://github.com/gautam-rahul-09" target="_blank" class="contact-item glass-card">
+                        <div class="contact-icon-wrap github"><i class="fab fa-github"></i></div>
+                        <div>
+                            <p class="contact-label">GitHub</p>
+                            <p class="contact-value">gautam-rahul-09</p>
                         </div>
-                    </div>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/gautam-rahul-65172224a/" target="_blank" class="social-link">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="https://github.com/gautam-rahul-09" target="_blank" class="social-link">
-                            <i class="fab fa-github"></i>
-                        </a>
-                    </div>
+                        <i class="fas fa-arrow-right contact-arrow"></i>
+                    </a>
                 </div>
 
-                <div class="contact-form-container">
-                    <form class="contact-form" id="contactForm">
+                <form class="contact-form glass-card" id="contactForm" novalidate>
+                    <div class="form-row">
                         <div class="form-group">
-                            <input type="text" id="name" name="name" required>
+                            <input type="text" id="name" name="name" required autocomplete="off">
                             <label for="name">Your Name</label>
+                            <span class="form-line"></span>
                         </div>
                         <div class="form-group">
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="email" required autocomplete="off">
                             <label for="email">Your Email</label>
+                            <span class="form-line"></span>
                         </div>
-                        <div class="form-group">
-                            <input type="text" id="subject" name="subject" required>
-                            <label for="subject">Subject</label>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                            <label for="message">Your Message</label>
-                        </div>
-                        <button type="submit" class="btn btn-primary">
-                            <span class="btn-text">Send Message</span>
-                            <span class="btn-loading">Sending...</span>
-                        </button>
-                    </form>
-                </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" name="subject" required autocomplete="off">
+                        <label for="subject">Subject</label>
+                        <span class="form-line"></span>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                        <label for="message">Your Message</label>
+                        <span class="form-line"></span>
+                    </div>
+                    <button type="submit" class="btn-submit" id="submitBtn">
+                        <span class="btn-submit-text">Send Message <i class="fas fa-paper-plane"></i></span>
+                        <span class="btn-submit-loading" style="display:none"><i class="fas fa-spinner fa-spin"></i> Sending...</span>
+                    </button>
+                    <div class="form-status" id="formStatus"></div>
+                </form>
             </div>
         </div>
     </section>
@@ -419,11 +543,18 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Gautam Rahul. All rights reserved.</p>
+            <div class="footer-content">
+                <p class="footer-logo">GR<span>.</span></p>
+                <p class="footer-copy">© 2026 Gautam Rahul. Built with passion for AI & Design.</p>
+                <div class="footer-socials">
+                    <a href="https://github.com/gautam-rahul-09" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/gautam-rahul-65172224a/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:gautamrahul2905@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
-    <script src="emailjs-config.js"></script>
 </body>
 </html>
